@@ -1,4 +1,4 @@
-Jialin's Personal Page
+XinyeXiong's Personal Page
 ========================
 
-You can view my pages at <http://Cather-Chen.github.io>.
+You can view my pages at <http://XinyeXiong.github.io>.
