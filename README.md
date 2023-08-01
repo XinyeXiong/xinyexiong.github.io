@@ -1,123 +1,189 @@
-# Hydejack
-[![Gem Version](https://badge.fury.io/rb/jekyll-theme-hydejack.svg)](https://badge.fury.io/rb/jekyll-theme-hydejack)
+# Hamilton <!-- omit in toc -->
 
-**Hydejack** is a Jekyll theme with JavaScript powers, combining the best of static sites and modern web apps.
-It features a suite of JavaScript that makes the page feel like an app, without sacrificing backwards-compatibility,
-page-load speed or SEO.
+A minimal and beautiful Jekyll theme best for writing and note-taking.
 
-> Your presence on the web — A [blog], a [portfolio] and a [resume].
+The original purpose of this theme is to be a replacement of the default Jekyll theme -- [Minima](https://github.com/jekyll/minima). Hamilton is an enhancement of Minima but still, keep in minimal.
 
-**Hydejack** aims to be the complete package for professionals on the web.
-It features a blog suitable for both prose and technical documentation,
-a showcase for your projects, and a resume that fits with the rest of the design.
+Please check out the [demo](https://ngzhio.github.io/jekyll-theme-hamilton/).
 
-![Screenshot](https://qwtel.com/assets/img/projects/default.jpg)
+| Skins | Displays |
+| ----- | -------- |
+| Daylight | ![screenshot](screenshot.png) |
+| Sunrise/Sunset | ![screenshot](screenshot-sunrise.png) |
+| Midnight | ![screenshot](screenshot-midnight.png) |
 
-## Demo
-It's best to just [see it in action](https://qwtel.com/hydejack/).
+## Features <!-- omit in toc -->
 
-## Features
-Both versions include these features:
+- [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag)
+- [Jekyll Feed](https://github.com/jekyll/jekyll-feed)
+- [Jekyll Sitemap](https://github.com/jekyll/jekyll-sitemap)
+- [Google Analytics](https://analytics.google.com/)
+- [MathJax](https://www.mathjax.org/)
+- [Disqus](https://disqus.com/)
+- [Font Awesome](https://fontawesome.com/)
+- TOC
+- Customizable head
+- Configurable page navigation
+- Customizable styles and skins
+- Archive pages implemented in pure Liquid
 
-* Full in-app page loading, powered by [hy-push-state]
-* A customizable sidebar that turns into a drawer menu on mobile, powered by [hy-drawer]
-* Advanced FLIP animations, inspired by Material Design
-* Good [Google PageSpeed Score][gpss][^3]
-* Higher *perceived speed* thanks to content pre-fetching
-* [Syntax highlighting][syntax], powered by [Rouge]
-* [LaTeX math blocks][latex], powered by [KaTeX]
-* Change the wording of built-in strings and possibly translate in other languages
-* Support for categories and tags
-* Built-in icons for many social networks
-* Simple and semantic HTML — can be viewed even with text-based browsers
-* Author section below each article and support for multiple authors
-* Progressive enhancement — sacrifice features, not content
-* Google Analytics and Google Fonts support
-* Disqus comments
-* Print layout — Used to render Hydejack's [PDF documentation][pdf]
-* Blog layout via `jekyll-paginate` (optional)
-* SEO meta tags via `jekyll-seo-tag` (optional)
-* Github avatars via `jekyll-avatar` (optional)
-* Gist support via `jekyll-gist` (optional)
+## Table of Contents <!-- omit in toc -->
 
-## Documentation
-Hydejack is well documented. You can read the docs [on the Jekyll site][docs], or [on GitHub][wiki], or [download the PDF][pdf].
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Optional Parameters](#optional-parameters)
+- [Archive Pages](#archive-pages)
+- [MathJax](#mathjax)
+- [TOC](#toc)
+- [Customization](#customization)
+  - [Metadata](#metadata)
+  - [Navigation](#navigation)
+  - [Social Media](#social-media)
+  - [Skins](#skins)
+  - [More Customized Styles](#more-customized-styles)
+- [License](#license)
 
-## Download
-There are two versions of **Hydejack**: The *free version* includes basic blogging functionality,
-as did previous versions of the theme.
-The *PRO version* includes additional features for professionals:
-A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
+## Installation
 
-This table details what is and isn't included in each respective version.
+You can choose one of the following methods to install Hamilton:
 
-|                                     | Free                                   | PRO                                          |
-|:------------------------------------|:--------------------------------------:|:--------------------------------------------:|
-| Blog                                | &#x2714;                               | &#x2714;                                     |
-| [Features][feat]                    | &#x2714;                               | &#x2714;                                     |
-| [Portfolio] Layout                  |                                        | &#x2714;                                     |
-| [Resume] Layout                     |                                        | &#x2714;                                     |
-| [Welcome] Layout                    |                                        | &#x2714;                                     |
-| [Newsletter Box][news]              |                                        | &#x2714;                                     |
-| [Custom Forms][forms]               |                                        | &#x2714;                                     |
-| No Hydejack Branding                |                                        | &#x2714;                                     |
-| License                             | [GPL-3.0][license]                     | [PRO]                                        |
-| Source                              | [GitHub][src]                          | Included                                     |
-| Support[^1]                         | No                                     | No                                           |
-| Price                               | Free                                   | $29                                          |
-|                                     | [**Download**][kit]                    | [**Buy Now - $29**][buy] [^2]                |
-{:.stretch-table}
+- Directly specify the `jekyll-theme-hamilton` gem.
 
-[^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
-      You understand that using Jekyll requires technical know-how, and is NOT comparable to Wordpress in terms of usability.
-      Please use the free version to confirm that Hydejack works for you.
-      For more, see the [PRO] license.
+    1. Add `gem 'jekyll-theme-hamilton'` into your `Gemfile`.
+    2. Add the below lines into your `_config.yml`.
 
-[^2]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
+        ```yml
+        plugins:
+          - jekyll-theme-hamilton
+        ```
 
-[^3]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
+- If your site is hosted on GitHub Pages, you can use [`jekyll-remote-theme`](https://github.com/benbalter/jekyll-remote-theme) to import the master branch of Hamilton.
 
-~~~
- __  __                __                                     __
-/\ \/\ \              /\ \             __                    /\ \
-\ \ \_\ \   __  __    \_\ \      __   /\_\      __       ___ \ \ \/'\
- \ \  _  \ /\ \/\ \   /'_` \   /'__`\ \/\ \   /'__`\    /'___\\ \ , <
-  \ \ \ \ \\ \ \_\ \ /\ \L\ \ /\  __/  \ \ \ /\ \L\.\_ /\ \__/ \ \ \\`\
-   \ \_\ \_\\/`____ \\ \___,_\\ \____\ _\ \ \\ \__/.\_\\ \____\ \ \_\ \_\
-    \/_/\/_/ `/___/> \\/__,_ / \/____//\ \_\ \\/__/\/_/ \/____/  \/_/\/_/
-                /\___/                \ \____/
-                \/__/                  \/___/
-~~~
+    1. Add `gem 'jekyll-remote-theme'` into your `Gemfile`.
+    2. Add the below lines into your `_config.yml`.
 
-[blog]: https://qwtel.com/hydejack/blog/
-[portfolio]: https://qwtel.com/hydejack/variations/
-[resume]: https://qwtel.com/hydejack/resume/
-[download]: https://qwtel.com/download/
-[welcome]: https://qwtel.com/hydejack/
-[forms]: https://qwtel.com/hydejack/forms-by-example/
+        ```yml
+        plugins:
+          - jekyll-remote-theme
 
-[feat]: https://qwtel.com/hydejack/#features
-[news]: https://qwtel.com/hydejack/#newsletter-subscription-box
-[syntax]: https://qwtel.com/hydejack/#syntax-highlighting
-[latex]: https://qwtel.com/hydejack/#latex-math-blocks
+        remote_theme: ngzhio/jekyll-theme-hamilton
+        ```
 
-[license]: LICENSE.md
-[pro]: licenses/PRO.md
-[docs]: docs/7.5.2/index.md
+## Configuration
 
-[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v7.5.2.zip
-[src]: https://github.com/qwtel/hydejack
-[git]: https://github.com/qwtel/hydejack-starter-kit
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
-[buy]: https://app.simplegoods.co/i/AQTTVBOE
+After installation, you can run `jekyll serve` to check out your site, but before that, *make sure* the below **required parameters** are configured in your `_config.yml`.
 
-[gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
-[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.5.2/index.md
-[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.5.2/Documentation._.Hydejack.pdf
-[hy-push-state]: https://qwtel.com/hy-push-state/
-[hy-drawer]: https://qwtel.com/hy-drawer/
-[rouge]: http://rouge.jneen.net
-[katex]: https://khan.github.io/KaTeX/
-[tinyletter]: https://tinyletter.com/
+| Parameters | Types | Specifications |
+|:---------- |:----- |:-------------- |
+| `title`    | string | The site title |
+| `disqus`   | string | The Disqus shortname; Unless you don't want to enable the comments system, you must specify this parameter. It is used in the production environment. |
+| `google_analytics` | string | The Google Analytics tracking ID; It is used in the production environment. |
 
-*[FLIP]: First-Last-Invert-Play. A coding technique to achieve performant page transition animations.
+### Optional Parameters
+
+| Parameters | Types | Specifications |
+|:---------- |:----- |:-------------- |
+| `author`   | string | The name of the author of the site; It would be showed in the copyright statement. |
+| `avatar`   | string | The avatar of the author of the site. |
+| `email`    | string | The email of the author of the site. |
+| `location` | string | The current living location of the author of the site. |
+| `skin`     | string | The skin name. See more information on the [Customization](#customization) section. |
+| `lang`     | string | The language of the site; The default value is `en`. |
+| `paginate` | int    | The number of posts on each page. |
+| `date_format` | string | The date format; The default value is `%b %-d, %Y`. |
+| `subscribe` | boolean | Show the subsribe feed button. |
+
+## Archive Pages
+
+Hamilton implements some archive templates in pure Liquid. For example, if you want to create a category archive page, set the below parameters on that page:
+
+```yml
+---
+layout: archive-taxonomies
+type: categories
+---
+```
+
+Or a tag archive page:
+
+```yml
+layout: archive-taxonomies
+type: tags
+```
+
+Or archive by years:
+
+```yml
+layout: archive-years
+```
+
+## MathJax
+
+You can enable MathJax on each post or page, just set `math: true` on that page.
+
+## TOC
+
+If you want to show the Table of Contents of a post or page on the left sidebar, just set `toc: true` on that page.
+
+## Customization
+
+### Metadata
+
+You can create a file `_includes/custom-head.html` in your repository, and add any metadata into that page, e.g. favicons.
+
+### Navigation
+
+You can create a file `_data/navigation.yml` to configure links to some pages. For example,
+
+```yml
+- title: About
+  url: /about/
+- title: Categories
+  url: /categories/
+- title: Tags
+  url: /tags/
+```
+
+The navigation bar also supports dropdown submenus:
+
+```yml
+- title: About
+  url: /about/
+- title: Categories
+  url: /categories/
+- title: Tags
+  url: /tags/
+- title: More
+  sublinks:
+    - title: FAQ
+      url: /faq/
+    - title: Docs
+      url: /docs/
+```
+
+### Social Media
+
+You can create a file `_data/social.yml` to configure links to your social media. For example,
+
+```yml
+- title: Twitter
+  url: https://twitter.com/ngzhio
+  icon: fab fa-twitter
+- title: GitHub
+  url: https://github.com/ngzhio/jekyll-theme-hamilton
+  icon: fab fa-github
+```
+
+### Skins
+
+You can select a skin by setting `skin` in `_config.yml`. The built-in skins include `daylight`, `midnight`, `sunrise`, and `sunset`. If you don't specify any skin, Hamilton would dynamically select one in these built-in skins according to different hours in a day.
+
+You can also customize a new skin, for example, a skin called `solarized`. You need to copy [`_sass/hamilton/skins/daylight.scss`](_sass/hamilton/skins/daylight.scss) into your repository and then rename it to `solarized.scss`, and adjust some colors in that file. Finally, specify `skin: solarized` in `_config.yml`.
+
+### More Customized Styles
+
+If you want to create more CSS styles in your site, creating a file `_sass/hamilton/custom-styles.scss`, and putting your code in there, Hamilton would automatically refer to them.
+
+## License
+
+The theme is available as open source under the terms of the [MIT License](LICENSE.txt).

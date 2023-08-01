@@ -1,16 +1,24 @@
-<footer role="contentinfo">
-  <hr/>
-  {% if site.copyright.size > 0 %}
-    <p><small class="copyright">{{ site.copyright | markdownify | replace:'<p>','' | replace:'</p>','' }}</small></p>
-  {% endif %}
-  {% if site.legal.size > 0 %}
-    <nav class="legal"><small>
-    {% for le in site.legal %}
-      <a href="{% include smart-url url=le.href %}">{{ le.name | default:le.title }}</a>
-      {% unless forloop.last %}{{ site.data.strings.separator | default:'|' }}{% endunless %}
-    {% endfor %}
-    </small></nav>
-  {% endif %}
-  <p><small>Powered by <a class="external" href="https://qwtel.com/hydejack/">Hydejack</a> v<span id="_version">7.5.2</span></small></p>
-  <hr class="sr-only"/>
-</footer>
+<div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      {% assign year_from = site.posts[-1].date | date: '%Y' %}
+      {% assign year_to   = site.time | date: '%Y' %}
+      {% if year_from == nil or year_from == year_to %}
+        {% assign year_string = year_from %}
+      {% else %}
+        {% assign year_string = year_from | append: '&nbsp;' | append: '-' | append: '&nbsp;' | append: year_to %}
+      {% endif %}
+      {% if site.author %}
+      <p>Copyright © {{ year_string }} {{ site.author }}; All rights reserved.</p>
+      {% endif %}
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>{{ site.description | escape }}</p>
+  </div>
+</div>
